@@ -1,0 +1,50 @@
+<!-- Доработайте пример 004_Attr_Tech.html таким образом, чтобы при наведении на span элементы, 
+    подсказка сплыва под ними, а не в модальном окне. Используйте addEventListener -->
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>task3</title>
+    <style>
+        .tooltip {
+            position: fixed;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-div">
+        <span data-tooltip="наведите">наведите</span> 
+        <span data-tooltip="для">для</span> 
+        <span data-tooltip="подсказки">подсказки</span>
+    </div>
+    
+    <script>
+            var mainDiv = document.getElementById("main-div");
+            var div;
+
+            mainDiv.onmouseover = function(e) {
+            var target = e && e.target;
+            var dataToggleId = target.getAttribute('data-tooltip');
+                if (!dataToggleId) {
+                    return
+                } else {
+                    div = document.createElement("div");
+                    div.classList.add("tooltip")
+                    div.innerHTML = dataToggleId;
+                    var coords = target.getBoundingClientRect();
+                    div.style.left = coords.left + 'px';
+                    document.body.append(div);
+                }
+            }
+            
+            mainDiv.addEventListener("mouseout", remove);
+            
+            function remove(e) {
+                if (div) {
+                div.remove();
+                }
+            }
+    </script>
+</body>
+</html>

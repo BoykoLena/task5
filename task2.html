@@ -1,0 +1,44 @@
+ <!-- Создайте 5 блоков с текстом. Добавьте в каждый из блоков кнопку для его удаления. 
+    Используйте только один обработчик. -->
+
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>   
+    <div id="all">
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, voluptatum?<br>
+            <input type="button" value="delete">
+        </div>
+        <div>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi, molestias?<br>
+            <input type="button" value="delete">
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, debitis.<br>
+            <input type="button" value="delete">
+        </div>
+        <div>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, suscipit.<br>
+            <input type="button" value="delete">
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, distinctio!<br>
+            <input type="button" value="delete">
+        </div>
+    </div>    
+    <script>
+        let all = document.querySelector("#all");
+
+        all.addEventListener("click", function(e) {
+            let target = e && e.target;
+            if (target.tagName === "INPUT") {
+                target.parentNode.hidden = true;
+            }   
+        })
+    </script>
+</body>
+</html>

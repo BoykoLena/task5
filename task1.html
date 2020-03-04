@@ -1,0 +1,35 @@
+<!--
+Создайте ссылку и див с текстом внутри, который изначально при загрузке страницы будет скрыт. 
+При клике на ссылку див появляется, если повторно нажать ссылку див и текст должны пропасть. 
+Также создайте кнопку, которая будет отменять выполнение обработчика клика по ссылке.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task1</title>
+</head>
+<body>
+    <a href="#">Ссылка</a>
+    <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi, tempore.</div><br>
+    <input type="button" value="остановить выполнение функции">
+    <script>
+        document.querySelector("div").hidden = true;
+        document.querySelector("a").addEventListener("click", hiddenDiv)
+        document.querySelector("input").addEventListener("click", deleteFunction)
+            
+        function hiddenDiv() {
+            if (document.querySelector("div").hidden === true) {
+                document.querySelector("div").hidden = false;
+            } else {
+                document.querySelector("div").hidden = true;
+            }            
+        }
+
+        function deleteFunction() {
+            document.querySelector("a").removeEventListener("click", hiddenDiv)
+        }
+
+    </script>
+</body>
+</html> 
